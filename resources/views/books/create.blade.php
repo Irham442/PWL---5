@@ -44,6 +44,12 @@
                             <x-input-error class="mt-2" :messages="$errors->get('city')" />
                         </div>
                         <div class="max-w-xl">
+                            <x-input-label for="stock" :value="__('Stok Buku')" />
+                            <x-text-input id="stock" name="stock" type="number" class="mt-1 block w-full" 
+                                value="{{ old('stock') }}" required />
+                            <x-input-error class="mt-2" :messages="$errors->get('stock')" />
+                        </div>
+                        <div class="max-w-xl">
                             <x-input-label for="bookshelf" value="Kategori RakBuku" />
                             <x-select-input id="bookshelf" name="bookshelf_id" class="mt-1 block w-full" required>
                                 <option value="">Open this select menu</option>

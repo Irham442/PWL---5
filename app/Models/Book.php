@@ -14,6 +14,7 @@ class Book extends Model
         'publisher',
         'city',
         'cover',
+        'stock',
         'bookshelf_id'
     ];
     public function bookshelf(): BelongsTo{

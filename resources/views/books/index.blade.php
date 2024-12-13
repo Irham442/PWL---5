@@ -27,6 +27,7 @@
                                 <th scope="col">Tahun</th>
                                 <th scope="col">Penerbit</th>
                                 <th scope="col">Kota</th>
+                                <th scope="col">Stok</th>
                                 <th scope="col">Cover</th>
                                 <th scope="col">Kode Rak</th>
                                 <th scope="col">Aksi</th>
@@ -40,6 +41,7 @@
                                 <td>{{ $book->year }}</td>
                                 <td>{{ $book->publisher }}</td>
                                 <td>{{ $book->city }}</td>
+                                <td>{{ $book->stock }}</td>
                                 <td>
                                     <img src="{{ asset('storage/cover_buku/' . $book->cover) }}" width="100px" />
                                 </td>

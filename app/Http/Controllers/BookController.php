@@ -36,6 +36,7 @@ class BookController extends Controller
             'year' => 'required|integer|max:2024',
             'publisher' => 'required|max:255',
             'city' => 'required|max:50',
+            'stock' => 'required|integer|min:0',
             'cover' => 'required',
             'bookshelf_id' => 'required',
         ]);
@@ -49,7 +50,7 @@ class BookController extends Controller
         Book::create($validated);
 
         $notification = array( 
-            'message' => 'Data buku berhasil dihapus', 
+            'message' => 'Data buku berhasil tambahkan', 
             'alert-type' => 'success' 
         );
         if($request->save == true) return redirect()->route('book')->with($notification);
@@ -64,6 +65,7 @@ class BookController extends Controller
             'year' => 'required|integer|max:2024',
             'publisher' => 'required|max:255',
             'city' => 'required|max:50',
+            'stock' => 'required|integer|min:0',
             'bookshelf_id' => 'required',
         ]);
         if($request->hasFile('cover')){
@@ -79,7 +81,7 @@ class BookController extends Controller
         $book->update($validated);
 
         $notification = array( 
-            'message' => 'Data buku berhasil dihapus', 
+            'message' => 'Data buku berhasil Diuabah', 
             'alert-type' => 'success' 
         );
         return redirect()->route('book')->with($notification);

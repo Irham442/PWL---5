@@ -25,6 +25,7 @@ Route::group(['middleware' => ['role:pustakawan']], function () {
     Route::get('/book/edit/{id}', [BookController::class, 'edit'])->name('book.edit');
     Route::post('/book/store', [BookController::class, 'store'])->name('book.store');
     Route::patch('/book/{id}/update', [BookController::class, 'update'])->name('book.update');
+    Route::post('book/{id}/update-stock', [BookController::class, 'updateStock'])->name('book.update-stock');
     Route::delete('/book/{id}/delete', [BookController::class, 'destroy'])->name('book.destroy');
     
     Route::get('/book/print', [BookController::class, 'print'])->name('book.print');
