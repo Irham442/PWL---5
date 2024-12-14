@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoanController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,6 +32,12 @@ Route::group(['middleware' => ['role:pustakawan']], function () {
     Route::get('/book/print', [BookController::class, 'print'])->name('book.print');
     Route::get('/book/export', [BookController::class, 'export'])->name('book.export');
     Route::post('/book/import', [BookController::class, 'import'])->name('book.import');
+});
+
+Route::group(['middleware' => ['role:mahasiswa']], function () {
+    Route::get('/loan', [LoanController::class, 'index'])->name('loan');
+    Route::get('/loan/create', [LoanController::class, 'create'])->name('loan.create');
+    Route::post('/loan', [LoanController::class, 'store'])->name('loan.store');
 });
 
 require __DIR__.'/auth.php';

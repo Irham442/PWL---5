@@ -9,13 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-
-                    <x-primary-button tag="a" href="{{ route('book.create') }}">Tambah Data Buku</x-primary-button>
-                    <x-primary-button tag="a" target="_blank" href="{{ route('book.print') }}">Print Data
-                        Buku</x-primary-button>
-                    <x-primary-button tag="a" target="_blank" href="{{ route('book.export') }}">Export Data
-                        Buku</x-primary-button>
-
+                <x-primary-button tag="a"
+                href="{{ route('loan.create') }}">pinjam</x-primary-button>
+                <x-Danger-button tag="a"
+                href="{{ route('loan.create') }}">Pengembalian</x-Danger-button>
                     <x-table>
                         <x-slot name="header">
                             <tr class="py-10">
@@ -28,7 +25,6 @@
                                 <th scope="col">Stok</th>
                                 <th scope="col">Cover</th>
                                 <th scope="col">Kode Rak</th>
-                                <th scope="col">Aksi</th>
                             </tr>
                         </x-slot>
                         @foreach ($books as $book)
@@ -44,13 +40,6 @@
                                     <img src="{{ asset('storage/cover_buku/' . $book->cover) }}" width="100px" />
                                 </td>
                                 <td>{{ $book->bookshelf->code }}-{{ $book->bookshelf->name }}</td>
-                                <td>
-                                    <x-primary-button tag="a"
-                                        href="{{ route('book.edit', $book->id) }}">Edit</x-primary-button>
-                                    <x-danger-button x-data=""
-                                        x-on:click.prevent="$dispatch('open-modal', 'confirm-book-deletion')"
-                                        x-on:click="$dispatch('set-action', '{{ route('book.destroy', $book->id) }}')">{{ __('Delete') }}</x-danger-button>
-                                </td>
                             </tr>
                         @endforeach
                     </x-table>

@@ -17,8 +17,8 @@
                     </x-nav-link>
 
                     @hasrole('mahasiswa')
-                        <x-nav-link :href="route('book')" :active="request()->routeIs('book')">
-                            {{ __('List Buku') }}
+                        <x-nav-link :href="route('loan')" :active="request()->routeIs('loan')">
+                            {{ __('peminjaman buku') }}
                         </x-nav-link>
                     @endhasrole
                     

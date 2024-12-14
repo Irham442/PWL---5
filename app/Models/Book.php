@@ -20,4 +20,9 @@ class Book extends Model
     public function bookshelf(): BelongsTo{
         return $this->belongsTo(Bookshelf::class);
     }
+    public function loans()
+    {
+        return $this->belongsToMany(Loan::class, 'loan_book', 'book_id', 'loan_id');
+    }
+
 }
